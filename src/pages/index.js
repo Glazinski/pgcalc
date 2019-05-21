@@ -1,21 +1,19 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from "react";
+import Layout from '../Layout/Layout.js';
+import styled from 'styled-components';
+import Header from '../components/Header/Header.js';
+//import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+const H1 = styled.h1`
+  color: ${({theme}) => theme.colors.primary};
+`;
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <Header />
+    </Layout>
+  );
+}
 
-export default IndexPage
+export default IndexPage;
