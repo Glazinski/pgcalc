@@ -6,4 +6,8 @@ export const theme = {
         primary: '#00669E',
         secondary: '#D2D2D2',
     },
+    font: {
+        regular: '400',
+        bold: 'bold',
+    }
 };

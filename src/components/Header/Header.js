@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../../img/logo_UWr.svg';
+//import { ReactComponent as Logo } from '../../img/logo_UWrr.svg';
 
 const StyledHeader = styled.header`
     display: flex;
@@ -12,7 +14,15 @@ const StyledHeader = styled.header`
 
 const H1 = styled.h1`
     position: absolute;
-    left: 3%;
+    left: 5%;
+    color: ${({theme}) => theme.colors.primary};
+    font-weight: ${({theme}) => theme.font.bold};
+`;
+
+const Img = styled.img`
+    position: absolute;
+    right: 5%;
+    height: 45px;
 `;
 
 const Header = () => {
@@ -20,6 +30,7 @@ const Header = () => {
         <>
             <StyledHeader>
                 <H1>Elo</H1>
+                <Img src={logo} alt='Logo' /> 
             </StyledHeader>
         </>
     );
