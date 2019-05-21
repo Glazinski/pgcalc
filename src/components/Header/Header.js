@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../../img/logo_UWr.svg';
+import logo from '../../img/logo-pg-small.png';
 //import { ReactComponent as Logo } from '../../img/logo_UWrr.svg';
 
 const StyledHeader = styled.header`
