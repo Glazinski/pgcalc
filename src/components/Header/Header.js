@@ -17,6 +17,7 @@ const H1 = styled.h1`
     left: 5%;
     color: ${({theme}) => theme.colors.primary};
     font-weight: ${({theme}) => theme.font.bold};
+    font-size: ${({theme}) => theme.fontSize.l};
 `;
 
 const Img = styled.img`
@@ -29,8 +30,8 @@ const Header = () => {
     return (
         <>
             <StyledHeader>
-                <H1>Elo</H1>
-                <Img src={logo} alt='Logo' /> 
+                <H1>Kalkulator punktów</H1>
+                <Img src={logo} alt='Logo' />
             </StyledHeader>
         </>
     );
