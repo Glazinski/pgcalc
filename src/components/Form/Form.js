@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import H2 from '../H2/H2.js';
 
 const StyledSection = styled.section`
-    height: 70vh;
+    height: auto;
+    position: relative;
 `;
 const StyledForm = styled.form`
     display: grid;
@@ -20,6 +21,7 @@ const StyledForm = styled.form`
     margin: 5vh auto;
     border-radius: ${({theme}) => theme.borderSize};
     position: relative;
+    background: ${({theme}) => theme.colors.white};
 
     ::before {
         content: '';
@@ -30,6 +32,40 @@ const StyledForm = styled.form`
         height: 2px;
         background-color: ${({theme}) => theme.colors.lightBlack};
     }
+`;
+
+const Button = styled.button`
+    width: 95px;
+    height: 34px;
+    border-radius: 17px;
+    margin: auto auto;
+    background-color: ${({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.white};
+    border: none;
+
+    /* :hover {
+        position: absolute;
+        cursor: pointer;
+    } */
+`;
+
+const StyledWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    
+    width: 95vw;
+    margin: auto auto;
+    padding: 5px;
+`;
+
+const ClipDiv = styled.div`
+    clip-path: polygon(100% 35%, 40% 100%, 100% 100%);
+    background: ${({theme}) => theme.colors.primary};
+    height: 100%;
+    width: 100%;
+    position: absolute;
 `;
 
 const StyledInput = styled.input`
@@ -45,13 +81,10 @@ const StyledInput = styled.input`
     } */
 `;
 
-const StyledCheckbox = styled.input`
-
-`;
-
 const Form = () => {
     return (
         <StyledSection>
+            <ClipDiv></ClipDiv>
             <StyledForm>
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
@@ -77,11 +110,11 @@ const Form = () => {
                 <StyledInput 
                     type='text'
                 />
+                
             </StyledForm>
-
-            <StyledCheckbox 
-                    type='checkbox'
-            />
+            <StyledWrapper>
+                <Button>Policz</Button>
+            </StyledWrapper>
         </StyledSection>
     );
 }
