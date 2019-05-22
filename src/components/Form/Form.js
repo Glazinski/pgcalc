@@ -55,6 +55,7 @@ const StyledWrapper = styled.div`
 
     width: 95vw;
     margin: auto auto;
+    margin-bottom: 10px;
     padding: 5px;
 `;
 
