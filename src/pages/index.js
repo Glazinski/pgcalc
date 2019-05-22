@@ -9,13 +9,23 @@ import Form from '../components/Form/Form.js';
 //   color: ${({theme}) => theme.colors.primary};
 // `;
 
-const IndexPage = () => {
-  return (
-    <Layout>
-      <Header />
-      <Form />
-    </Layout>
-  );
+class IndexPage extends React.Component {
+
+  state = {};
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('elo', event);
+  }
+
+  render() {
+      return ( 
+      <Layout>
+        <Header />
+        <Form handleSubmit={this.handleSubmit}/>
+      </Layout>
+    );
+  }
 }
 
 export default IndexPage;

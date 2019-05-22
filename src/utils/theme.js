@@ -1,4 +1,4 @@
-import { css } from 'styled-components';
+//import { css } from 'styled-components';
 export const theme = {
     colors: {
         white: '#FFFFFF',
@@ -17,7 +17,7 @@ export const theme = {
         l: '1.2rem',
     },
     borderSize: '23px',
-    // gritTemplate: () => {
+    // gritTemplate: (column, row) => {
     //     css`
     //         display: grid;
     //         grid-template-column: repeat();

@@ -42,19 +42,17 @@ const Button = styled.button`
     background-color: ${({theme}) => theme.colors.primary};
     color: ${({theme}) => theme.colors.white};
     border: none;
-
-    /* :hover {
-        position: absolute;
-        cursor: pointer;
-    } */
 `;
 
 const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, 1fr);
     justify-content: center;
     align-items: center;
-    
+    position: absolute;
+    bottom: -20%;
+
     width: 95vw;
     margin: auto auto;
     padding: 5px;
@@ -65,6 +63,7 @@ const ClipDiv = styled.div`
     background: ${({theme}) => theme.colors.primary};
     height: 100%;
     width: 100%;
+    bottom: -20%;
     position: absolute;
 `;
 
@@ -74,47 +73,47 @@ const StyledInput = styled.input`
     margin: auto auto;
     text-align: center;
     
-    /* ::-webkit-inner-spin-button, 
+    ::-webkit-inner-spin-button, 
     ::-webkit-outer-spin-button { 
         -webkit-appearance: none; 
         margin: 0; 
-    } */
+    }
 `;
 
-const Form = () => {
+const Form = (props) => {
     return (
         <StyledSection>
             <ClipDiv></ClipDiv>
-            <StyledForm>
+            <StyledForm onSubmit={props.handleSubmit}>
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
                 <H2 isReg>Przedmiot główny</H2>
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
                 <H2 isReg>Język polski</H2>
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
                 <H2 isReg>Język obcy</H2>
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
                 <StyledInput 
-                    type='text'
+                    type='number'
                 />
-                
+                <StyledWrapper>
+                    <Button>Policz</Button>
+                </StyledWrapper>
             </StyledForm>
-            <StyledWrapper>
-                <Button>Policz</Button>
-            </StyledWrapper>
+            
         </StyledSection>
     );
 }
