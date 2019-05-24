@@ -52,7 +52,11 @@ const Rules = (props) => {
             {/* <StyledWrapper>
                 <h1>ELO</h1>
             </StyledWrapper> */}
-            <SpecificRules />
+            
+            <SpecificRules 
+                handleClick={props.handleClick}
+                data={props.data}
+            />
         </StyledSection>
     );
 }
