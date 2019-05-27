@@ -38,24 +38,31 @@ const Button = styled.button`
     width: 95px;
     height: 34px;
     border-radius: 17px;
-    margin: auto auto;
+    
     background-color: ${({theme}) => theme.colors.primary};
     color: ${({theme}) => theme.colors.white};
     border: none;
+
+    margin: auto auto;
+    margin-bottom: -5px;
+    grid-column: 1;
 `;
 
 const StyledWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
     position: absolute;
-    bottom: -20%;
+    bottom: -24%;
 
     width: 95vw;
     margin: auto auto;
-    margin-bottom: 10px;
+    
     padding: 5px;
 `;
 
@@ -64,7 +71,7 @@ const ClipDiv = styled.div`
     background: ${({theme}) => theme.colors.primary};
     height: 100%;
     width: 100%;
-    bottom: -20%;
+    bottom: -30%;
     position: absolute;
 `;
 
@@ -78,6 +85,23 @@ const StyledInput = styled.input`
     ::-webkit-outer-spin-button { 
         -webkit-appearance: none; 
         margin: 0; 
+    }
+`;
+
+const StyledCheckbox = styled.input`
+    grid-column: 1;
+    margin-left: 15%;
+    position: relative;
+    margin-bottom: 15px;
+
+    ::after {
+        content: 'Matura dwujęzyczna';
+        font-size: ${({theme}) => theme.fontSize.xs};
+        width: 200px;
+        height: auto;
+        position: absolute;
+        left: 120%;
+        top: -14%;
     }
 `;
 
@@ -111,6 +135,7 @@ const Form = (props) => {
                     type='number'
                 />
                 <StyledWrapper>
+                    <StyledCheckbox type='checkbox' />
                     <Button>Policz</Button>
                 </StyledWrapper>
             </StyledForm>

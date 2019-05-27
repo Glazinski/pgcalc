@@ -9,7 +9,7 @@ const StyledUl = styled.ul`
     line-height: 23px;
     list-style-type: none;
     text-align: center;
-    border: 1px solid ${({theme}) => theme.colors.black};
+    border: 1px solid ${({theme}) => theme.colors.lightBlack};
     padding: 5px;
     transition: display 1s ease-in;
     margin: auto auto 10px auto;
@@ -49,7 +49,7 @@ const SpecificRules = (props) => {
             onClick={() => props.handleClick(item.id)}
             key={item.id}
             clicked={item.clicked}
-        > <H2>{item.title}</H2>
+        > <H2 isReg>{item.title}</H2>
             <Arrow clicked={item.clicked}/>
             <StyledLi key={shortid.generate()} clicked={item.clicked}>
                 <br />{item.text}

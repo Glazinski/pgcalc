@@ -14,6 +14,7 @@ export const theme = {
         bold: 'bold',
     },
     fontSize: {
+        xs: '0.9rem',
         m: '1rem',
         l: '1.2rem',
     },

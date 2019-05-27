@@ -5,7 +5,7 @@ import H2 from '../H2/H2.js';
 
 const StyledSection = styled.section`
     height: 300px;
-    margin-top: 69px;
+    margin-top: 104px;
     position: relative;
 `;
 
