@@ -55,7 +55,9 @@ const Rules = (props) => {
             
             <SpecificRules 
                 handleClick={props.handleClick}
+                handleChange={props.handleChange}
                 data={props.data}
+                selectValue={props.selectValue}
             />
         </StyledSection>
     );

@@ -3,61 +3,58 @@ import styled from 'styled-components';
 import shortid from 'short-id';
 import H2 from '../H2/H2.js';
 
-const StyledUl = styled.ul`
-    width: 82%;
-    border-radius: 5px;
-    line-height: 23px;
-    list-style-type: none;
+const StyledSelect = styled.select`
+   
+    display: block;
+    margin: 0 auto;
+    padding: 5px 50px;
+`;
+
+const StyledOption = styled.option`
+    display: block;
+    padding: 5px 50px;
+`;
+
+const StyledText = styled.div`
+    width: 90%;
+    height: auto;
+    padding: 10px;
+    margin: 5px auto;
+    line-height: 130%;
     text-align: center;
-    border: 1px solid ${({theme}) => theme.colors.lightBlack};
-    padding: 5px;
-    transition: display 1s ease-in;
-    margin: auto auto 10px auto;
-    background-color: ${({theme}) => theme.colors.white};
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    justify-content: center;
-    align-items: center;
-
-    /* :hover {
-        transition: background-color .2s ease-in-out;
-        background-color: ${({theme}) => theme.colors.dark};
-    } */
-`;
-
-const StyledLi = styled.li`
-    display: ${({clicked}) => clicked ? 'grid' : 'none'};
-    grid-column: -1 / 1;
-`;
-
-const Arrow = styled.div`
-        width: 0; 
-        height: 0; 
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid ${({theme}) => theme.colors.primary};
-        transition: transform .3s ease-in-out;
-        ${({clicked}) => clicked ? `transform: rotate(180deg);` : null}; 
 `;
 
 const SpecificRules = (props) => {
-    const rulesComponent = props.data.map(item => {
-        return <StyledUl
-            onClick={() => props.handleClick(item.id)}
-            key={item.id}
-            clicked={item.clicked}
-        > <H2 isReg>{item.title}</H2>
-            <Arrow clicked={item.clicked}/>
-            <StyledLi key={shortid.generate()} clicked={item.clicked}>
-                <br />{item.text}
-            </StyledLi>
-        </StyledUl>
+
+    const rulesComp = props.data.map(item => {
+        return (
+            <StyledOption 
+                key={item.title}
+                value={item.title.toLowerCase()}
+            >
+                {item.title}
+            </StyledOption>
+        );
     });
+
+    const text = props.data.find(item => {
+        return props.selectValue === item.title.toLowerCase();
+    });
+
+    console.log(text);
+
     return (
-        <>
-            {rulesComponent}   
+        <> 
+            <StyledSelect 
+                value={props.selectValue} 
+                onChange={props.handleChange}
+            >
+                {rulesComp}
+            </StyledSelect>
+
+            <StyledText>
+                {text.text}
+            </StyledText>
         </>
     );
 }

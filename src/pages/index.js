@@ -10,7 +10,8 @@ import Rules from '../components/PointsRules/Rules.js';
 class IndexPage extends React.Component {
 
   state = {
-    rules: rules
+    rules: rules,
+    selectValue: 'matematyka',
   };
 
   handleSubmit = (event) => {
@@ -30,6 +31,14 @@ class IndexPage extends React.Component {
     this.setState({rules: newRules});
   }
 
+  handleChange = (event) => {
+    console.log(event.target.value);
+    const {value} = event.target;
+    this.setState( prevState => {
+      return {selectValue: prevState.value = value}
+    });
+  }
+
   render() {
       //console.log(this.state.idArr);
       return ( 
@@ -38,7 +47,9 @@ class IndexPage extends React.Component {
         <Form handleSubmit={this.handleSubmit}/>
         <Rules
           data={this.state.rules}
-          handleClick={this.handleClick} 
+          selectValue={this.state.selectValue}
+          handleClick={this.handleClick}
+          handleChange={this.handleChange}
         />
       </Layout>
     );
