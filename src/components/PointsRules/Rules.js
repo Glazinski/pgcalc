@@ -16,19 +16,17 @@ const ClipDiv = styled.div`
     clip-path: polygon(40% 0, 0 48%, 0 0);
     background: ${({theme}) => theme.colors.secondary};
     z-index: -1;
+
+    /* query for desktop */
+    ${({theme}) => theme.querys.desktop} {
+        display: none;
+    }
 `;
 
 const H1 = styled.h1 `
-    /* position: absolute;
-    left: 5%;
-    top: 15%; */
     color: ${({theme}) => theme.colors.dark};
     font-weight: ${({theme}) => theme.font.bold};
     font-size: ${({theme}) => theme.fontSize.l};
-`;
-
-const StyledWrapper = styled.div`
-    z-index: 1;
 `;
 
 const StyledDiv = styled.div`
@@ -48,16 +46,11 @@ const Rules = (props) => {
             <StyledDiv>
                 <H1>Przedmioty główne do wyboru</H1>
             </StyledDiv>
-
-            {/* <StyledWrapper>
-                <h1>ELO</h1>
-            </StyledWrapper> */}
             
             <SpecificRules 
+                {...props}
                 handleClick={props.handleClick}
                 handleChange={props.handleChange}
-                data={props.data}
-                selectValue={props.selectValue}
             />
         </StyledSection>
     );

@@ -4,7 +4,6 @@ import shortid from 'short-id';
 import H2 from '../H2/H2.js';
 
 const StyledSelect = styled.select`
-   
     display: block;
     margin: 0 auto;
     padding: 5px 50px;
@@ -26,7 +25,7 @@ const StyledText = styled.div`
 
 const SpecificRules = (props) => {
 
-    const rulesComp = props.data.map(item => {
+    const rulesComp = props.rules.map(item => {
         return (
             <StyledOption 
                 key={item.title}
@@ -37,11 +36,9 @@ const SpecificRules = (props) => {
         );
     });
 
-    const text = props.data.find(item => {
+    const text = props.rules.find(item => {
         return props.selectValue === item.title.toLowerCase();
     });
-
-    console.log(text);
 
     return (
         <> 
@@ -53,6 +50,7 @@ const SpecificRules = (props) => {
             </StyledSelect>
 
             <StyledText>
+                <H2 marg>Kierunki studiów</H2>
                 {text.text}
             </StyledText>
         </>

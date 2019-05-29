@@ -19,17 +19,21 @@ export const theme = {
         l: '1.2rem',
     },
     borderSize: '23px',
-    arrow: {
-        down: `
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-top: 10px solid #125491;`,
+    querys: {
+        desktop: '@media (min-width: 700px)',
+        bigDesktop: '@media (min-width: 1180px)',
+    },
+    // arrow: {
+    //     down: `
+    //     border-left: 10px solid transparent;
+    //     border-right: 10px solid transparent;
+    //     border-top: 10px solid #125491;`,
 
-        up: `
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid #125491;`
-    }
+    //     up: `
+    //     border-left: 10px solid transparent;
+    //     border-right: 10px solid transparent;
+    //     border-bottom: 10px solid #125491;`
+    // }
     // gritTemplate: (column, row) => {
     //     css`
     //         display: grid;

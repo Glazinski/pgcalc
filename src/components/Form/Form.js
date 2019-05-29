@@ -4,6 +4,7 @@ import H2 from '../H2/H2.js';
 
 const StyledSection = styled.section`
     height: auto;
+    width: 100%;
     position: relative;
 `;
 const StyledForm = styled.form`
@@ -31,6 +32,19 @@ const StyledForm = styled.form`
         width: 80vw;
         height: 2px;
         background-color: ${({theme}) => theme.colors.lightBlack};
+
+        /* query for desktop */
+        ${({theme}) => theme.querys.desktop} {
+            width: 85%;
+        }
+    }
+
+    /* query for desktop */
+    ${({theme}) => theme.querys.desktop} {
+        width: 90%;
+    }
+
+    ${({theme}) => theme.querys.bigDesktop} {
     }
 `;
 
@@ -46,6 +60,11 @@ const Button = styled.button`
     margin: auto auto;
     margin-bottom: -5px;
     grid-column: 1;
+
+    /* query for desktop */
+    ${({theme}) => theme.querys.desktop} {
+        margin-left: 15%;
+    }
 `;
 
 const StyledWrapper = styled.div`
@@ -73,6 +92,11 @@ const ClipDiv = styled.div`
     width: 100%;
     bottom: -30%;
     position: absolute;
+
+    /* query for desktop */
+    ${({theme}) => theme.querys.desktop} {
+        display: none;
+    }
 `;
 
 const StyledInput = styled.input`

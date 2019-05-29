@@ -4,6 +4,8 @@ import { rules } from '../storage/rules.js';
 import Header from '../components/Header/Header.js';
 import Form from '../components/Form/Form.js';
 import Rules from '../components/PointsRules/Rules.js';
+import Footer from '../components/Footer/Footer.js';
+import styled from 'styled-components';
 //import { Link } from "gatsby"
 
 
@@ -32,25 +34,38 @@ class IndexPage extends React.Component {
   }
 
   handleChange = (event) => {
-    console.log(event.target.value);
     const {value} = event.target;
     this.setState( prevState => {
-      return {selectValue: prevState.value = value}
+      return {
+        selectValue: prevState.value = value
+      }
     });
   }
 
   render() {
       //console.log(this.state.idArr);
+      const StyledWrapper = styled.div`
+        ${({theme}) => theme.querys.desktop} {
+          width: 100%;
+          height: auto;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+        }
+      `;
       return ( 
       <Layout>
         <Header />
-        <Form handleSubmit={this.handleSubmit}/>
-        <Rules
-          data={this.state.rules}
-          selectValue={this.state.selectValue}
-          handleClick={this.handleClick}
-          handleChange={this.handleChange}
-        />
+        <StyledWrapper>
+          <Form handleSubmit={this.handleSubmit}/>
+          <Rules
+            {...this.state}
+            data={this.state.rules}
+            selectValue={this.state.selectValue}
+            handleClick={this.handleClick}
+            handleChange={this.handleChange}
+          />
+        </StyledWrapper>
+        <Footer />
       </Layout>
     );
   }
