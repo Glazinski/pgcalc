@@ -5,6 +5,7 @@ import H2 from '../H2/H2.js';
 
 const StyledSelect = styled.select`
     display: block;
+    background-color: ${({theme}) => theme.colors.white};
     margin: 0 auto;
     padding: 5px 50px;
 `;

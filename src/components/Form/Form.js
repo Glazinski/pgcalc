@@ -41,11 +41,13 @@ const StyledForm = styled.form`
 
     /* query for desktop */
     ${({theme}) => theme.querys.desktop} {
-        width: 90%;
+        width: 95%;
+        padding: 0;
     }
 
     ${({theme}) => theme.querys.bigDesktop} {
-         max-width: 500px;
+        max-width: 500px;
+        padding: 5px;
     }
 `;
 
