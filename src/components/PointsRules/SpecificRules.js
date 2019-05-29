@@ -43,7 +43,6 @@ const Arrow = styled.div`
 `;
 
 const SpecificRules = (props) => {
-    console.log(props.data)
     const rulesComponent = props.data.map(item => {
         return <StyledUl
             onClick={() => props.handleClick(item.id)}
