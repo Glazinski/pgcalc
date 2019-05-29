@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-    height: auto;
+    height: 68vh;
     width: 100%;
     position: relative;
 `;
@@ -11,7 +11,7 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 62vh;
+    height: 100%;
     width: 100%;
 
     /* position: absolute;
@@ -19,14 +19,18 @@ const ClipPath = styled.div`
     
 `;
 const Test = styled.div`
-    height: 100vh;
-    width: 100%;
-    background: blue;
+    height: 80%;
+    width: 90%;
+    background: red;
+    position: absolute;
+    top: 0;
+    left: 5%;
 `;
 const Footer = (props) => {
     return (
         <StyledFooter>
             <ClipPath></ClipPath>
+            
         </StyledFooter>
     );
 }

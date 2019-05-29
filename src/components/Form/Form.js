@@ -45,6 +45,7 @@ const StyledForm = styled.form`
     }
 
     ${({theme}) => theme.querys.bigDesktop} {
+         max-width: 500px;
     }
 `;
 
@@ -79,7 +80,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     bottom: -24%;
 
-    width: 95vw;
+    width: auto;
     margin: auto auto;
     
     padding: 5px;
