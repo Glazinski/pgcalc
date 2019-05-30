@@ -45,7 +45,7 @@ class IndexPage extends React.Component {
   render() {
       //console.log(this.state.idArr);
       const StyledWrapper = styled.div`
-        ${({theme}) => theme.querys.desktop} {
+        ${({theme}) => theme.queries.desktop} {
           width: 100%;
           height: auto;
           display: grid;
@@ -65,7 +65,7 @@ class IndexPage extends React.Component {
             handleChange={this.handleChange}
           />
         </StyledWrapper>
-        <Footer />
+        <Footer handleSubmit={this.handleSubmit}/>
       </Layout>
     );
   }

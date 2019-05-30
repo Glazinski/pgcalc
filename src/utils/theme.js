@@ -19,7 +19,7 @@ export const theme = {
         l: '1.2rem',
     },
     borderSize: '23px',
-    querys: {
+    queries: {
         desktop: '@media (min-width: 700px)',
         bigDesktop: '@media (min-width: 1180px)',
     },

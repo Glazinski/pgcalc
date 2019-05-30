@@ -34,18 +34,18 @@ const StyledForm = styled.form`
         background-color: ${({theme}) => theme.colors.lightBlack};
 
         /* query for desktop */
-        ${({theme}) => theme.querys.desktop} {
+        ${({theme}) => theme.queries.desktop} {
             width: 85%;
         }
     }
 
     /* query for desktop */
-    ${({theme}) => theme.querys.desktop} {
+    ${({theme}) => theme.queries.desktop} {
         width: 95%;
         padding: 0;
     }
 
-    ${({theme}) => theme.querys.bigDesktop} {
+    ${({theme}) => theme.queries.bigDesktop} {
         max-width: 500px;
         padding: 5px;
     }
@@ -64,9 +64,13 @@ const Button = styled.button`
     margin-bottom: -5px;
     grid-column: 1;
 
+    :hover {
+        cursor: pointer;
+    }
+
     /* query for desktop */
-    ${({theme}) => theme.querys.desktop} {
-        margin-left: 15%;
+    ${({theme}) => theme.queries.desktop} {
+        margin-left: 15%;        
     }
 `;
 
@@ -97,7 +101,7 @@ const ClipDiv = styled.div`
     position: absolute;
 
     /* query for desktop */
-    ${({theme}) => theme.querys.desktop} {
+    ${({theme}) => theme.queries.desktop} {
         display: none;
     }
 `;

@@ -18,7 +18,7 @@ const ClipDiv = styled.div`
     z-index: -1;
 
     /* query for desktop */
-    ${({theme}) => theme.querys.desktop} {
+    ${({theme}) => theme.queries.desktop} {
         display: none;
     }
 `;

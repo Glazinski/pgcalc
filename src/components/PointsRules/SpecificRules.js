@@ -22,6 +22,10 @@ const StyledText = styled.div`
     margin: 5px auto;
     line-height: 130%;
     text-align: center;
+
+    ${({theme}) => theme.queries.desktop} {
+        width: 70%;
+    }
 `;
 
 const SpecificRules = (props) => {
