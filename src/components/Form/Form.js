@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import H2 from '../H2/H2.js';
+import shortid from 'short-id';
 
 const StyledSection = styled.section`
     height: auto;
@@ -140,37 +141,60 @@ const Form = (props) => {
     return (
         <StyledSection>
             <ClipDiv></ClipDiv>
-            <StyledForm onSubmit={props.handleSubmit}>
+            <StyledForm onSubmit={props.handleSubmit} id="imp" key='aq0'>
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
                 <H2 isReg>Przedmiot główny</H2>
-                <StyledInput 
+                <StyledInput
+                    disabled={props.extMain ? true : null}
                     type='number'
+                    name="basicMain"
+                    onChange={props.handleChange}
+                    value={props.basicMain === 0 ? '' : props.basicMain }
                 />
-                <StyledInput 
+                <StyledInput
+                    disabled={props.basicMain ? true : null}
                     type='number'
+                    name="extMain"
+                    onChange={props.handleChange}
+                    value={props.extMain === 0 ? '' : props.extMain}
                 />
                 <H2 isReg>Język polski</H2>
-                <StyledInput 
+                <StyledInput
+                    disabled={props.extPolish ? true : null}
                     type='number'
+                    name="basicPolish"
+                    onChange={props.handleChange}
+                    value={props.basicPolish === 0 ? '' : props.basicPolish}
                 />
                 <StyledInput 
+                    disabled={props.basicPolish ? true : null}
                     type='number'
+                    name="extPolish"
+                    onChange={props.handleChange}
+                    value={props.extPolish === 0 ? '' : props.extPolish}
                 />
                 <H2 isReg>Język obcy</H2>
-                <StyledInput 
+                <StyledInput
+                    disabled={props.extForeign ? true : null}
                     type='number'
+                    name="basicForeign"
+                    onChange={props.handleChange}
+                    value={props.basicForeign === 0 ? '' : props.basicForeign}
                 />
-                <StyledInput 
+                <StyledInput
+                    disabled={props.basicForeign ? true : null}
                     type='number'
+                    name="extForeign"
+                    onChange={props.handleChange}
+                    value={props.extForeign === 0 ? '' : props.extForeign}
                 />
                 <StyledWrapper>
                     <StyledCheckbox type='checkbox' />
                     <Button>Policz</Button>
                 </StyledWrapper>
             </StyledForm>
-            
         </StyledSection>
     );
 }

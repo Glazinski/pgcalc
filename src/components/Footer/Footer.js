@@ -59,8 +59,12 @@ const Button = styled.button`
     background-color: ${({theme}) => theme.colors.primary};
     color: ${({theme}) => theme.colors.white};
     border: none;
-    margin: 5% 0 5% 50%;
 
+    :hover {
+        cursor: pointer;
+    }
+
+    margin: 5% 0 5% 50%;
     grid-area: b;
 `;
 

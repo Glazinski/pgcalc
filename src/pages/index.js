@@ -6,19 +6,38 @@ import Form from '../components/Form/Form.js';
 import Rules from '../components/PointsRules/Rules.js';
 import Footer from '../components/Footer/Footer.js';
 import styled from 'styled-components';
+import shortid from 'short-id';
 //import { Link } from "gatsby"
 
+const StyledWrapper = styled.div`
+    ${({theme}) => theme.queries.desktop} {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`;
 
 class IndexPage extends React.Component {
 
   state = {
     rules: rules,
     selectValue: 'matematyka',
+    basicMain: 0,
+    extMain: 0,
+    basicPolish: 0,
+    extPolish: 0,
+    basicForeign: 0,
+    extForeign: 0,
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('elo', event.type);
+    console.log('elo', event.target);
+    const {value, type, id} = event.target;
+    if(id === 'imp') {
+      
+    }
   }
 
   handleClick = (id) => {
@@ -34,29 +53,26 @@ class IndexPage extends React.Component {
   }
 
   handleChange = (event) => {
-    const {value} = event.target;
-    this.setState( prevState => {
+    const {value, type, name} = event.target;
+    //console.log(type)
+    type === 'select-one' ? this.setState( prevState => {
       return {
         selectValue: prevState.value = value
       }
-    });
+    })
+    : this.setState({[name]: value});
   }
 
   render() {
-      //console.log(this.state.idArr);
-      const StyledWrapper = styled.div`
-        ${({theme}) => theme.queries.desktop} {
-          width: 100%;
-          height: auto;
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-        }
-      `;
       return ( 
       <Layout>
         <Header />
         <StyledWrapper>
-          <Form handleSubmit={this.handleSubmit}/>
+          <Form 
+            handleSubmit={this.handleSubmit} 
+            handleChange={this.handleChange}
+            {...this.state}
+          />
           <Rules
             {...this.state}
             data={this.state.rules}
