@@ -29,12 +29,24 @@ class IndexPage extends React.Component {
     extPolish: 0,
     basicForeign: 0,
     extForeign: 0,
+    subjects: [
+      {basicMain: 0},
+      {extMain: 0},
+      {basicPolish: 0},
+      {extPolish: 0},
+      {basicForeign: 0},
+      {extForeign: 0}
+    ]
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log('elo', event.target);
-    const {value, type, id} = event.target;
+    let newArr = this.state.subjects.filter((item, i) => {
+      if(i === 5) return item;
+    })
+    console.log(newArr);
+    const { id } = event.target;
     if(id === 'imp') {
       
     }
@@ -54,16 +66,42 @@ class IndexPage extends React.Component {
 
   handleChange = (event) => {
     const {value, type, name} = event.target;
-    //console.log(type)
-    type === 'select-one' ? this.setState( prevState => {
-      return {
-        selectValue: prevState.value = value
-      }
+    // //console.log(type)
+    // type === 'select-one' ? this.setState( prevState => {
+    //   return {
+    //     selectValue: prevState.value = value
+    //   }
+    // })
+    // : this.setState({[name]: value});
+    let test = [...this.state.subjects];
+    //console.log(test)
+    
+    // const tescik = test.filter((item, i) => {
+    //   console.log(item.name)
+    //   //console.log(name)
+    //   return item.name;
+    // })
+    //console.log(this.state.subjects[0][name]);
+    const subjects = this.state.subjects.map(item => {
+      //if(item === name) item = value;
+      item[name] = value;
+      return item;
     })
-    : this.setState({[name]: value});
+    //console.log(newArr)
+
+    this.setState(prevState => {
+      const subjects = this.state.subjects.map(item => {
+        //if(item === name) item = value;
+        item[name] = value;
+        return item;
+      })
+      return {subjects,};
+    });
   }
 
   render() {
+    
+      console.log(this.state)
       return ( 
       <Layout>
         <Header />

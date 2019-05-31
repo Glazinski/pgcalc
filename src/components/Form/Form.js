@@ -138,6 +138,15 @@ const StyledCheckbox = styled.input`
 `;
 
 const Form = (props) => {
+    //console.log(props.subjects[0]);
+    const {basicMain} = props.subjects[0];
+    const {extMain} = props.subjects[1];
+    const {basicPolish} = props.subjects[2];
+    const {extPolish} = props.subjects[3];
+    const {basicForeign} = props.subjects[4];
+    const {extForeign} = props.subjects[5];
+
+    //console.log(extMain)
     return (
         <StyledSection>
             <ClipDiv></ClipDiv>
@@ -145,50 +154,50 @@ const Form = (props) => {
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
-                <H2 isReg>Przedmiot główny</H2>
+                <H2 isReg>Przedmiot<br /> główny</H2>
                 <StyledInput
-                    disabled={props.extMain ? true : null}
+                    disabled={extMain ? true : null}
                     type='number'
                     name="basicMain"
                     onChange={props.handleChange}
-                    value={props.basicMain === 0 ? '' : props.basicMain }
+                    value={basicMain === 0 ? '' : basicMain }
                 />
                 <StyledInput
-                    disabled={props.basicMain ? true : null}
+                    disabled={basicMain ? true : null}
                     type='number'
                     name="extMain"
                     onChange={props.handleChange}
-                    value={props.extMain === 0 ? '' : props.extMain}
+                    value={extMain === 0 ? '' : extMain}
                 />
                 <H2 isReg>Język polski</H2>
                 <StyledInput
-                    disabled={props.extPolish ? true : null}
+                    disabled={extPolish ? true : null}
                     type='number'
                     name="basicPolish"
                     onChange={props.handleChange}
-                    value={props.basicPolish === 0 ? '' : props.basicPolish}
+                    value={basicPolish === 0 ? '' : basicPolish}
                 />
                 <StyledInput 
-                    disabled={props.basicPolish ? true : null}
+                    disabled={basicPolish ? true : null}
                     type='number'
                     name="extPolish"
                     onChange={props.handleChange}
-                    value={props.extPolish === 0 ? '' : props.extPolish}
+                    value={extPolish === 0 ? '' : extPolish}
                 />
                 <H2 isReg>Język obcy</H2>
                 <StyledInput
-                    disabled={props.extForeign ? true : null}
+                    disabled={extForeign ? true : null}
                     type='number'
                     name="basicForeign"
                     onChange={props.handleChange}
-                    value={props.basicForeign === 0 ? '' : props.basicForeign}
+                    value={basicForeign === 0 ? '' : basicForeign}
                 />
                 <StyledInput
-                    disabled={props.basicForeign ? true : null}
+                    disabled={basicForeign ? true : null}
                     type='number'
                     name="extForeign"
                     onChange={props.handleChange}
-                    value={props.extForeign === 0 ? '' : props.extForeign}
+                    value={extForeign === 0 ? '' : extForeign}
                 />
                 <StyledWrapper>
                     <StyledCheckbox type='checkbox' />
