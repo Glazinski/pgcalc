@@ -20,6 +20,7 @@ export const theme = {
     },
     borderSize: '23px',
     queries: {
+        smallDesktop: '@media (min-width: 500px)',
         desktop: '@media (min-width: 700px)',
         bigDesktop: '@media (min-width: 1180px)',
     },

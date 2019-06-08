@@ -1,7 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
 import H2 from '../H2/H2.js';
-import shortid from 'short-id';
 
 const StyledSection = styled.section`
     height: auto;
@@ -35,19 +34,25 @@ const StyledForm = styled.form`
         background-color: ${({theme}) => theme.colors.lightBlack};
 
         /* query for desktop */
+
+        ${({theme}) => theme.queries.smallDesktop} {
+            width: 85%;
+        }
+
         ${({theme}) => theme.queries.desktop} {
             width: 85%;
         }
     }
-
+    ${({theme}) => theme.queries.smallDesktop} {
+        max-width: 450px;
+    }
     /* query for desktop */
     ${({theme}) => theme.queries.desktop} {
         width: 95%;
-        padding: 0;
     }
 
     ${({theme}) => theme.queries.bigDesktop} {
-        max-width: 500px;
+        max-width: 450px;
         padding: 5px;
     }
 `;
@@ -138,15 +143,28 @@ const StyledCheckbox = styled.input`
 `;
 
 const Form = (props) => {
-    //console.log(props.subjects[0]);
-    const {basicMain} = props.subjects[0];
-    const {extMain} = props.subjects[1];
-    const {basicPolish} = props.subjects[2];
-    const {extPolish} = props.subjects[3];
-    const {basicForeign} = props.subjects[4];
-    const {extForeign} = props.subjects[5];
+    console.log(props.subjects);
 
-    //console.log(extMain)
+    const inputsComp = props.subjects.map((item, i) => 
+        
+        (<React.Fragment key={item.id}>
+                {i === 0 ? 
+                    <H2 isReg key={item.titleId}>
+                        Przedmiot <br />główny
+                    </H2>
+                : item.title ? <H2 isReg key={item.titleId}>{item.title}</H2> : null}
+                <StyledInput
+                    key={item.id}
+                    disabled={item.disabled}
+                    type="number"
+                    name={item.subject}
+                    value={item.value === 0 ? '' : item.value}
+                    onChange={props.handleChange}
+                />
+            </React.Fragment>)
+    );
+
+    //console.log(inputsComp)
     return (
         <StyledSection>
             <ClipDiv></ClipDiv>
@@ -154,7 +172,8 @@ const Form = (props) => {
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
-                <H2 isReg>Przedmiot<br /> główny</H2>
+                {inputsComp}
+                {/* <H2 isReg>Przedmiot<br /> główny</H2>
                 <StyledInput
                     disabled={extMain ? true : null}
                     type='number'
@@ -198,7 +217,7 @@ const Form = (props) => {
                     name="extForeign"
                     onChange={props.handleChange}
                     value={extForeign === 0 ? '' : extForeign}
-                />
+                /> */}
                 <StyledWrapper>
                     <StyledCheckbox type='checkbox' />
                     <Button>Policz</Button>

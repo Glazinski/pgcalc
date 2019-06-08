@@ -36,3 +36,45 @@ export const rules = [
         clicked: false,
     },
 ];
+export const subjects = [
+    {
+        id: 'aq1',
+        subject: 'basicMain',
+        value: 0,
+        disabled: false,
+    },
+    {
+        id: 'aq2',
+        subject: 'extMain',
+        value: 0,
+        disabled: false,
+    },
+    {
+        titleId: 'aqe2',
+        title: 'Język polski',
+        id: 'aq3',
+        subject: 'basicPolish',
+        value: 0,
+        disabled: false,
+    },
+    {
+        id: 'aq4',
+        subject: 'extPolish',
+        value: 0,
+        disabled: false,
+    },
+    {
+        titleId: 'aqe3',
+        title: 'Język obcy',
+        id: 'aq5',
+        subject: 'basicForeign',
+        value: 0,
+        disabled: false,
+    },
+    {
+        id: 'aq6',
+        subject: 'extForeign',
+        value: 0,
+        disabled: false,
+    },
+];

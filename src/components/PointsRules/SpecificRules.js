@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import shortid from 'short-id';
 import H2 from '../H2/H2.js';
 
 const StyledSelect = styled.select`
@@ -47,7 +46,7 @@ const SpecificRules = (props) => {
 
     return (
         <> 
-            <StyledSelect 
+            <StyledSelect
                 value={props.selectValue} 
                 onChange={props.handleChange}
             >
