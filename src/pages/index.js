@@ -23,12 +23,54 @@ class IndexPage extends React.Component {
     rules: rules,
     selectValue: 'matematyka',
     subjects: subjects,
+    checked: false,
   };
+
+  check(item, value, name) {
+     
+      const subjectsNames = ["basicMain", "extMain", "basicPolish", "extPolish", "basicForeign", "extForeign"];
+      
+      for(let i=0; i<subjectsNames.length; i+=2) {
+      if(name === subjectsNames[i] && value !== "") {
+        if(item.subject === subjectsNames[i+1]) {
+          item.disabled = true;
+        }
+      } else if(name === subjectsNames[i] && value === "") {
+        if(item.subject === subjectsNames[i+1]) {
+          item.disabled = false;
+        }
+      }
+
+      if(name === subjectsNames[i+1] && value !== "") {
+        if(item.subject === subjectsNames[i]) {
+          item.disabled = true;
+        }
+      } else if(name === subjectsNames[i+1] && value === "") {
+        if(item.subject === subjectsNames[i]) {
+          item.disabled = false;
+        }
+      }
+    }
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
     console.log('elo', event.target);
-    
+    const newArr = this.state.subjects.filter(item => {
+      if(item.disabled === false && item.value) return item;
+    });
+    console.log(newArr);
+    //let word = 'basicSth';
+    //word.substr(0, 5)
+
+    const result = newArr.map((item, i) => {
+      if(item.subject.substr(0, 5) === "basic") {
+        console.log('elo');
+      }
+      if(i === 0) {
+        
+      }
+    });
   }
 
   handleClick = (id) => {
@@ -44,25 +86,31 @@ class IndexPage extends React.Component {
   }
 
   handleChange = (event) => {
-    const {value, name, type} = event.target;
-
+    const {name, type} = event.target;
+    let {value} = event.target;
+    //Checking if value is correct, if not it's changing to 100 or 0
+    //It depends if value is lower than 0 or higher than 100
+    if (value < 0) value = "";
+    if (value > 100) value = 100;
     const newSub = this.state.subjects.map(item => {
-        if(name === item.subject) {
-          item.value = value;
-        }
-        if(item.value){
 
-        }
-        return item;
+      this.check(item, value, name);
+
+      if(name === item.subject) {
+        item.value = value;
+      }
+      return item;
     });
+
     type === 'select-one' ? 
     this.setState({selectValue: value})
+    : type === 'checkbox' ?
+    this.setState(prevState => { return {checked: !prevState.checked} })
     : this.setState({subjects: newSub});
   }
 
   render() {
     
-      //console.log(this.state)
       return ( 
       <Layout>
         <Header />

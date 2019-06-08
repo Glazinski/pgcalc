@@ -143,7 +143,7 @@ const StyledCheckbox = styled.input`
 `;
 
 const Form = (props) => {
-    console.log(props.subjects);
+    //console.log(props.subjects);
 
     const inputsComp = props.subjects.map((item, i) => 
         
@@ -158,8 +158,9 @@ const Form = (props) => {
                     disabled={item.disabled}
                     type="number"
                     name={item.subject}
-                    value={item.value === 0 ? '' : item.value}
+                    value={item.value}
                     onChange={props.handleChange}
+                    maxLength="3"
                 />
             </React.Fragment>)
     );
@@ -172,54 +173,15 @@ const Form = (props) => {
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
+
                 {inputsComp}
-                {/* <H2 isReg>Przedmiot<br /> główny</H2>
-                <StyledInput
-                    disabled={extMain ? true : null}
-                    type='number'
-                    name="basicMain"
-                    onChange={props.handleChange}
-                    value={basicMain === 0 ? '' : basicMain }
-                />
-                <StyledInput
-                    disabled={basicMain ? true : null}
-                    type='number'
-                    name="extMain"
-                    onChange={props.handleChange}
-                    value={extMain === 0 ? '' : extMain}
-                />
-                <H2 isReg>Język polski</H2>
-                <StyledInput
-                    disabled={extPolish ? true : null}
-                    type='number'
-                    name="basicPolish"
-                    onChange={props.handleChange}
-                    value={basicPolish === 0 ? '' : basicPolish}
-                />
-                <StyledInput 
-                    disabled={basicPolish ? true : null}
-                    type='number'
-                    name="extPolish"
-                    onChange={props.handleChange}
-                    value={extPolish === 0 ? '' : extPolish}
-                />
-                <H2 isReg>Język obcy</H2>
-                <StyledInput
-                    disabled={extForeign ? true : null}
-                    type='number'
-                    name="basicForeign"
-                    onChange={props.handleChange}
-                    value={basicForeign === 0 ? '' : basicForeign}
-                />
-                <StyledInput
-                    disabled={basicForeign ? true : null}
-                    type='number'
-                    name="extForeign"
-                    onChange={props.handleChange}
-                    value={extForeign === 0 ? '' : extForeign}
-                /> */}
+
                 <StyledWrapper>
-                    <StyledCheckbox type='checkbox' />
+                    <StyledCheckbox 
+                        type='checkbox'
+                        checked={props.checked}
+                        onChange={props.handleChange}
+                    />
                     <Button>Policz</Button>
                 </StyledWrapper>
             </StyledForm>

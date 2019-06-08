@@ -40,13 +40,13 @@ export const subjects = [
     {
         id: 'aq1',
         subject: 'basicMain',
-        value: 0,
+        value: "",
         disabled: false,
     },
     {
         id: 'aq2',
         subject: 'extMain',
-        value: 0,
+        value: "",
         disabled: false,
     },
     {
@@ -54,13 +54,13 @@ export const subjects = [
         title: 'Język polski',
         id: 'aq3',
         subject: 'basicPolish',
-        value: 0,
+        value: "",
         disabled: false,
     },
     {
         id: 'aq4',
         subject: 'extPolish',
-        value: 0,
+        value: "",
         disabled: false,
     },
     {
@@ -68,13 +68,13 @@ export const subjects = [
         title: 'Język obcy',
         id: 'aq5',
         subject: 'basicForeign',
-        value: 0,
+        value: "",
         disabled: false,
     },
     {
         id: 'aq6',
         subject: 'extForeign',
-        value: 0,
+        value: "",
         disabled: false,
     },
 ];
