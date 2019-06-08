@@ -5,6 +5,7 @@ import Header from '../components/Header/Header.js';
 import Form from '../components/Form/Form.js';
 import Rules from '../components/PointsRules/Rules.js';
 import Footer from '../components/Footer/Footer.js';
+import Result from '../components/Result/Result.js';
 import styled from 'styled-components';
 //import { Link } from "gatsby"
 
@@ -24,9 +25,11 @@ class IndexPage extends React.Component {
     selectValue: 'matematyka',
     subjects: subjects,
     checked: false,
+    resultComp: 0,
+    close: true,
   };
 
-  check(item, value, name) {
+  check = (item, value, name) => {
      
       const subjectsNames = ["basicMain", "extMain", "basicPolish", "extPolish", "basicForeign", "extForeign"];
       
@@ -64,8 +67,6 @@ class IndexPage extends React.Component {
     let polish;
     let foreign;
     const wieloJezyczna = this.state.checked ? 0.15 : 0.1;
-    console.log(wieloJezyczna)
-    console.log(wieloJezyczna)
     //loop which is calculating points for every subject
     newArr.forEach((item, i) => {
       if(i === 0) {
@@ -88,20 +89,26 @@ class IndexPage extends React.Component {
     });
     //Changing type to float becouse strings cannot be added to each other
     let result = (parseFloat(main) + parseFloat(polish) + parseFloat(foreign));
+
+    //Result !!!
     result = parseFloat(result.toFixed(2));
-    console.log(result);
+    if(isNaN(result)) result = 'Pola muszą być uzupełnione';
+    this.setState({resultComp: result, close: true});
   }
 
-  handleClick = (id) => {
-    console.log('elo', id);
+  handleClick = (event, id) => {
+   // console.log('elo', id, event);
+    const { type } = event;
+    console.log(type)
     const newRules = this.state.rules.filter(item => {
       if(id === item.id) {
         item.clicked = !item.clicked;
       }
       return item;
     });
-    console.log(newRules)
-    this.setState({rules: newRules});
+    //console.log(newRules)
+    type === "click" ? this.setState({close: false})
+    : this.setState({rules: newRules});
   }
 
   handleChange = (event) => {
@@ -129,10 +136,16 @@ class IndexPage extends React.Component {
   }
 
   render() {
-    
+      console.log(this.state.resultComp)
+      const expression = this.state.resultComp === 0 ? false : true;
       return ( 
       <Layout>
         <Header />
+        {expression ? <Result 
+          data={this.state.resultComp}
+          close={this.state.close}
+          handleClick={this.handleClick}
+        ></Result> : null}
         <StyledWrapper>
           <Form 
             handleSubmit={this.handleSubmit} 

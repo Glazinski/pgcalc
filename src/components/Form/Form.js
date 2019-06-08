@@ -69,9 +69,11 @@ const Button = styled.button`
     margin: auto auto;
     margin-bottom: -5px;
     grid-column: 1;
+    transition: box-shadow .4s ease-in-out;
 
     :hover {
         cursor: pointer;
+        box-shadow: 0px 11px 13px -10px ${({theme}) => theme.colors.red};
     }
 
     /* query for desktop */

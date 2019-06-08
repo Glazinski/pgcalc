@@ -60,8 +60,11 @@ const Button = styled.button`
     color: ${({theme}) => theme.colors.white};
     border: none;
 
+    
+
     :hover {
         cursor: pointer;
+        
     }
 
     margin: 5% 0 5% 50%;

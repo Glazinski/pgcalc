@@ -8,6 +8,7 @@ export const theme = {
         secondary: '#D2D2D2',
         lightBlack: '#707070',
         dark: '#4A4A4A',
+        red: '#e22d3f',
     },
     font: {
         regular: '400',
@@ -17,6 +18,8 @@ export const theme = {
         xs: '0.9rem',
         m: '1rem',
         l: '1.2rem',
+        xl: '1.4rem',
+        xxl: '1.7rem',
     },
     borderSize: '23px',
     queries: {
