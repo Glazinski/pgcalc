@@ -59,18 +59,37 @@ class IndexPage extends React.Component {
     const newArr = this.state.subjects.filter(item => {
       if(item.disabled === false && item.value) return item;
     });
-    console.log(newArr);
-    //let word = 'basicSth';
-    //word.substr(0, 5)
-
-    const result = newArr.map((item, i) => {
-      if(item.subject.substr(0, 5) === "basic") {
-        console.log('elo');
-      }
+    
+    let main;
+    let polish;
+    let foreign;
+    const wieloJezyczna = this.state.checked ? 0.15 : 0.1;
+    console.log(wieloJezyczna)
+    console.log(wieloJezyczna)
+    //loop which is calculating points for every subject
+    newArr.forEach((item, i) => {
       if(i === 0) {
-        
+        if(item.subject.substr(0, 5) === "basic") {
+          main = (item.value * 0.6).toFixed(2);
+        } else main = (item.value * 1).toFixed(2);
+      }
+
+      if(i === 1) {
+        if(item.subject.substr(0, 5) === "basic") {
+          polish = (0.1 * item.value * 0.6).toFixed(2);
+        } else polish = (0.1 * item.value * 1).toFixed(2);
+      }
+
+      if(i === 2) {
+        if(item.subject.substr(0, 5) === "basic") {
+          foreign = (wieloJezyczna * item.value * 0.6).toFixed(2);
+        } else foreign = (wieloJezyczna * item.value * 1).toFixed(2);
       }
     });
+    //Changing type to float becouse strings cannot be added to each other
+    let result = (parseFloat(main) + parseFloat(polish) + parseFloat(foreign));
+    result = parseFloat(result.toFixed(2));
+    console.log(result);
   }
 
   handleClick = (id) => {
