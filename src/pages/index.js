@@ -58,11 +58,10 @@ class IndexPage extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('elo', event.target);
     const newArr = this.state.subjects.filter(item => {
       if(item.disabled === false && item.value) return item;
     });
-    
+    //Calculating points are made here
     let main;
     let polish;
     let foreign;
@@ -99,7 +98,6 @@ class IndexPage extends React.Component {
   handleClick = (event, id) => {
    // console.log('elo', id, event);
     const { type } = event;
-    console.log(type)
     const newRules = this.state.rules.filter(item => {
       if(id === item.id) {
         item.clicked = !item.clicked;
@@ -136,7 +134,6 @@ class IndexPage extends React.Component {
   }
 
   render() {
-      console.log(this.state.resultComp)
       const expression = this.state.resultComp === 0 ? false : true;
       return ( 
       <Layout>

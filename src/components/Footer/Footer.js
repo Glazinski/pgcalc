@@ -60,15 +60,24 @@ const Button = styled.button`
     color: ${({theme}) => theme.colors.white};
     border: none;
 
-    
+    /* margin: 5% 0 5% 50%; */
+    margin: 20px 0 20px 100px;
+    grid-area: b;
+
+    transition: box-shadow .4s ease-in-out;
 
     :hover {
         cursor: pointer;
-        
+        box-shadow: 0px 11px 13px -10px ${({theme}) => theme.colors.red};
     }
 
-    margin: 5% 0 5% 50%;
-    grid-area: b;
+    ${({theme}) => theme.queries.smallDesktop} {
+        margin: 20px 0 20px 150px;
+    }
+
+    ${({theme}) => theme.queries.desktop} {
+        margin: 20px 0 20px 200px;
+    }
 `;
 
 const Icon = styled.i`
@@ -79,9 +88,7 @@ const Icon = styled.i`
     font-size: 2rem;
     grid-area: g;
 
-    ${({theme}) => theme.queries.desktop} {
-        margin-right: 110px;
-    }
+    
 `;
 
 const StyledWrapper = styled.div`

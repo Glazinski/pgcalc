@@ -1,19 +1,41 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const keyTest = keyframes`
     0% {
-        left: -10px;
+        left: -100px;
     }
     100% {
         left: 50%;
     }
 `;
 
+const secondKeyTest = keyframes`
+    0% {
+        left: 50%;
+    }
+    100% {
+        left: -200px;
+        opacity: 0;
+    }
+`;
+
+let animation = props =>
+    css`
+        ${props.close ? css`animation: ${keyTest} .5s ease-in-out 0s 1;`
+        : css`
+            animation: ${secondKeyTest} .5s ease-in-out 0s 1;
+            animation-fill-mode: both;
+        `}
+    `;
+
 const StyledDiv = styled.div`
-    display: ${({close}) => close ? 'flex' : 'none'};
+    display: flex;
     align-items: center;
     justify-content: center;
+
+    width: 324px;
+    height: 108px;
     padding: 10px;
 
     position: absolute;
@@ -24,7 +46,9 @@ const StyledDiv = styled.div`
     transform: translate(-50%, -50%);
     padding: 20px;
     border: 1px solid ${({theme}) => theme.colors.dark};
-    animation: ${keyTest} .5s ease-in-out 0s 1;
+
+    ${({animation}) => animation};
+
     background-color: ${({theme}) => theme.colors.white};
     color: ${({theme}) => theme.colors.dark};
     box-shadow: 0px 10px 13px -6px rgba(0,0,0,0.75);
@@ -33,6 +57,7 @@ const StyledDiv = styled.div`
 const StyledButton = styled.button`
     background: none;
     border: none;
+    outline: none;
     color: ${({theme}) => theme.colors.red};
     padding: 10px;
     margin-left: 10px;
@@ -48,12 +73,18 @@ const H3 = styled.h3`
     font-size: ${({theme}) => theme.fontSize.xxl};
     font-weight: 400;
 `;
-/* animation: ${keyTest} 2s ease-in-out 0s 1; */
+
 const Result = (props) => {
     return (
-        <StyledDiv data={props.resultComp} close={props.close}>
-            <H3>Wynik: {props.data}</H3>
-            <StyledButton onClick={props.handleClick}><i className="fas fa-times"></i></StyledButton> 
+        <StyledDiv 
+            data={props.resultComp} 
+            close={props.close} 
+            animation={css`${animation}`}
+        >
+            <H3>{props.data}</H3>
+            <StyledButton onClick={props.handleClick}>
+                <i className="fas fa-times"></i>
+                </StyledButton> 
         </StyledDiv>
     );
 };

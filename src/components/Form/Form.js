@@ -57,49 +57,6 @@ const StyledForm = styled.form`
     }
 `;
 
-const Button = styled.button`
-    width: 95px;
-    height: 34px;
-    border-radius: 17px;
-    
-    background-color: ${({theme}) => theme.colors.primary};
-    color: ${({theme}) => theme.colors.white};
-    border: none;
-
-    margin: auto auto;
-    margin-bottom: -5px;
-    grid-column: 1;
-    transition: box-shadow .4s ease-in-out;
-
-    :hover {
-        cursor: pointer;
-        box-shadow: 0px 11px 13px -10px ${({theme}) => theme.colors.red};
-    }
-
-    /* query for desktop */
-    ${({theme}) => theme.queries.desktop} {
-        margin-left: 15%;        
-    }
-`;
-
-const StyledWrapper = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    justify-content: center;
-    align-items: center;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-start; */
-    position: absolute;
-    bottom: -24%;
-
-    width: auto;
-    margin: auto auto;
-    
-    padding: 5px;
-`;
-
 const ClipDiv = styled.div`
     clip-path: polygon(100% 35%, 40% 100%, 100% 100%);
     background: ${({theme}) => theme.colors.primary};
@@ -127,6 +84,24 @@ const StyledInput = styled.input`
     }
 `;
 
+const StyledWrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+    position: absolute;
+    bottom: -24%;
+
+    width: auto;
+    margin: auto auto;
+    
+    padding: 5px;
+`;
+
 const StyledCheckbox = styled.input`
     grid-column: 1;
     margin-left: 15%;
@@ -141,6 +116,31 @@ const StyledCheckbox = styled.input`
         position: absolute;
         left: 120%;
         top: -14%;
+    }
+`;
+
+const Button = styled.button`
+    width: 95px;
+    height: 34px;
+    border-radius: 17px;
+    
+    background-color: ${({theme}) => theme.colors.primary};
+    color: ${({theme}) => theme.colors.white};
+    border: none;
+
+    margin: auto auto;
+    margin-bottom: -5px;
+    grid-column: 1;
+    transition: box-shadow .4s ease-in-out;
+
+    :hover {
+        cursor: pointer;
+        box-shadow: 0px 11px 13px -10px ${({theme}) => theme.colors.red};
+    }
+
+    /* query for desktop */
+    ${({theme}) => theme.queries.desktop} {
+        margin-left: 15%;        
     }
 `;
 
@@ -179,6 +179,7 @@ const Form = (props) => {
                 {inputsComp}
 
                 <StyledWrapper>
+                    
                     <StyledCheckbox 
                         type='checkbox'
                         checked={props.checked}
