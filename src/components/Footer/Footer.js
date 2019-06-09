@@ -108,16 +108,24 @@ const Footer = (props) => {
     return (
         <StyledFooter>
             <ClipPath></ClipPath>
-            <ContactForm onSubmit={props.handleSubmit}>
+            <ContactForm 
+                onSubmit={props.handleSubmit}
+                name="contact"
+                method="post"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+            >
                 <StyledInput
+                    name="mail"
                     type="email"
                     placeholder="Twój e-mail"
                 />
                 <StyledArea 
+                    name="tekst"
                     placeholder="Coś jest nie tak albo chcesz wystawić opinie? Daj mi znać"
                 />
                 <StyledWrapper>
-                <Button>Wyślij</Button>
+                <Button type="submit">Wyślij</Button>
 
                 <Icon 
                     as="a" 
