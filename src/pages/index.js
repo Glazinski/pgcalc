@@ -58,6 +58,8 @@ class IndexPage extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    console.log(event.target.id)
+    const { id } = event.target;
     const newArr = this.state.subjects.filter(item => {
       if(item.disabled === false && item.value) return item;
     });
@@ -92,7 +94,10 @@ class IndexPage extends React.Component {
     //Result !!!
     result = parseFloat(result.toFixed(2));
     if(isNaN(result) || result === 0) result = 'Pola muszą być uzupełnione';
-    this.setState({resultComp: result, close: true});
+
+    // If it's form show values if it's not then do sth with other form
+    id === "imp" ? this.setState({resultComp: result, close: true}) 
+    : console.log('elo');
   }
 
   handleClick = (event, id) => {
