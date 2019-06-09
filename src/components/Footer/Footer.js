@@ -112,6 +112,7 @@ const Footer = (props) => {
                 name="contact"
                 method="POST"
                 netlify
+                data-netlify-honeypot="bot-field"
             >
                 <StyledInput
                     name="name"
