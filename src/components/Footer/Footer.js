@@ -109,7 +109,6 @@ const Footer = (props) => {
         <StyledFooter>
             <ClipPath></ClipPath>
             <ContactForm 
-                onSubmit={props.handleSubmit}
                 name="contact"
                 method="POST"
                 netlify
