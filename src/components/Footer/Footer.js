@@ -111,12 +111,12 @@ const Footer = (props) => {
             <ContactForm 
                 onSubmit={props.handleSubmit}
                 name="contact"
-                method="post"
-                data-netlify="true"
+                method="POST"
+                netlify
             >
                 <StyledInput
                     name="name"
-                    type="text"
+                    type="email"
                     placeholder="Twój e-mail"
                 />
                 <StyledArea 
@@ -126,7 +126,7 @@ const Footer = (props) => {
                 <StyledWrapper>
                 <Button type="submit">Wyślij</Button>
 
-                <Icon 
+                <Icon
                     as="a" 
                     href="https://github.com/Glazinski" 
                     className="fab fa-github"
