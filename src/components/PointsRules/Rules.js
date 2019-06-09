@@ -6,6 +6,8 @@ import H2 from '../H2/H2.js';
 const StyledSection = styled.section`
     height: 300px;
     margin-top: 104px;
+    /* if result is true*/
+    margin-top: ${({res}) => res > 0 ? `135px` : null};
     position: relative;
 `;
 
@@ -40,7 +42,7 @@ const StyledDiv = styled.div`
 
 const Rules = (props) => {
     return (
-        <StyledSection>
+        <StyledSection res={props.resultComp}>
             
             <ClipDiv></ClipDiv>
             <StyledDiv>

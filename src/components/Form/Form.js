@@ -63,6 +63,8 @@ const ClipDiv = styled.div`
     height: 100%;
     width: 100%;
     bottom: -30%;
+    /* if result is true*/
+    bottom: ${({res}) => res > 0 ? `-39%` : null};
     position: absolute;
 
     /* query for desktop */
@@ -95,7 +97,8 @@ const StyledWrapper = styled.div`
     justify-content: flex-start; */
     position: absolute;
     bottom: -24%;
-
+    /* if result is true*/
+    bottom: ${({res}) => res > 0 ? `-35%` : null};
     width: auto;
     margin: auto auto;
     
@@ -144,6 +147,28 @@ const Button = styled.button`
     }
 `;
 
+const StyledResult = styled.div`
+    position: relative;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    grid-column: -1 / 1;
+    text-align: start;
+    color: ${({theme}) => theme.colors.dark};
+    font-size: ${({theme}) => theme.fontSize.xl};
+
+    ::before {
+        content: '';
+        display: ${({res}) => res > 0 ? `block` : `none`};
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: -5px;
+        top: -4px;
+        background-color: ${({theme}) => theme.colors.secondary};
+        z-index: -1;
+    }
+`;
+
 const Form = (props) => {
     //console.log(props.subjects);
 
@@ -166,20 +191,27 @@ const Form = (props) => {
                 />
             </React.Fragment>)
     );
+    
+    const res = props.resultComp > 0 ? `Wynik: ${props.resultComp}` 
+    : null;
 
-    //console.log(inputsComp)
     return (
         <StyledSection>
-            <ClipDiv></ClipDiv>
-            <StyledForm onSubmit={props.handleSubmit} id="imp" key='aq0'>
+            <ClipDiv res={props.resultComp}></ClipDiv>
+            <StyledForm 
+                onSubmit={props.handleSubmit} 
+                id="imp" 
+                key='aq0'
+                res={props.resultComp}
+            >
                 <H2>Przedmiot</H2>
                 <H2>Poziom Podstawowy<br />(%)</H2>
                 <H2>Poziom Rozszerzony<br />(%)</H2>
 
                 {inputsComp}
 
-                <StyledWrapper>
-                    
+                <StyledWrapper res={props.resultComp}>
+                    <StyledResult res={props.resultComp}>{res}</StyledResult>
                     <StyledCheckbox 
                         type='checkbox'
                         checked={props.checked}

@@ -91,7 +91,7 @@ class IndexPage extends React.Component {
 
     //Result !!!
     result = parseFloat(result.toFixed(2));
-    if(isNaN(result)) result = 'Pola muszą być uzupełnione';
+    if(isNaN(result) || result === 0) result = 'Pola muszą być uzupełnione';
     this.setState({resultComp: result, close: true});
   }
 
@@ -126,7 +126,7 @@ class IndexPage extends React.Component {
       return item;
     });
 
-    type === 'select-one' ? 
+    type === 'select-one' ?
     this.setState({selectValue: value})
     : type === 'checkbox' ?
     this.setState(prevState => { return {checked: !prevState.checked} })
@@ -134,11 +134,12 @@ class IndexPage extends React.Component {
   }
 
   render() {
-      const expression = this.state.resultComp === 0 ? false : true;
-      return ( 
+    //const expression = this.state.resultComp === 0 ? false : true;
+    const expression = isNaN(this.state.resultComp) ? true : false;
+    return (
       <Layout>
         <Header />
-        {expression ? <Result 
+        {expression ? <Result
           data={this.state.resultComp}
           close={this.state.close}
           handleClick={this.handleClick}
