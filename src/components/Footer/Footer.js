@@ -116,11 +116,11 @@ const Footer = (props) => {
             >
                 <StyledInput
                     name="name"
-                    type="email"
+                    type="text"
                     placeholder="Twój e-mail"
                 />
                 <StyledArea 
-                    name="tekst"
+                    name="message"
                     placeholder="Coś jest nie tak albo chcesz wystawić opinie? Daj mi znać"
                 />
                 <StyledWrapper>
