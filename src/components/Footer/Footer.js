@@ -11,11 +11,15 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 670px;
+    height: 630px;
     width: 100%;
 
     position: absolute;
     z-index: -1;
+
+    ${({theme}) => theme.queries.desktop} {
+        height: 680px;
+    }
 `;
 
 const ContactForm = styled.form`
@@ -24,14 +28,14 @@ const ContactForm = styled.form`
     display:flex;
     align-items: center;
     flex-direction: column;
-
-    height: 500px;
+    height: 430px;
     width: 80%;
     background-color: ${({theme}) => theme.colors.white};
     border: 1px solid ${({theme}) => theme.colors.lightBlack};
     margin: 60px auto 0 auto;
 
     ${({theme}) => theme.queries.desktop} {
+        height: 500px;
         max-width: 500px;
         margin-top: 200px;
     }
