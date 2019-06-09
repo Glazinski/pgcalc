@@ -116,7 +116,7 @@ const Footer = (props) => {
                 data-netlify-honeypot="bot-field"
             >
                 <StyledInput
-                    name="mail"
+                    name="name"
                     type="email"
                     placeholder="Twój e-mail"
                 />
