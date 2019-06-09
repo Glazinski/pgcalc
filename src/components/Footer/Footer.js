@@ -11,7 +11,7 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 100%;
+    height: 670px;
     width: 100%;
 
     position: absolute;
@@ -25,7 +25,7 @@ const ContactForm = styled.form`
     align-items: center;
     flex-direction: column;
 
-    height: 80%;
+    height: 500px;
     width: 80%;
     background-color: ${({theme}) => theme.colors.white};
     border: 1px solid ${({theme}) => theme.colors.lightBlack};
