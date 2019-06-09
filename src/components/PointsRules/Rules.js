@@ -48,7 +48,6 @@ const Rules = (props) => {
             <StyledDiv>
                 <H1>Przedmioty główne do wyboru</H1>
             </StyledDiv>
-            
             <SpecificRules 
                 {...props}
                 handleClick={props.handleClick}

@@ -78,6 +78,8 @@ const StyledInput = styled.input`
     height: 26px;
     margin: auto auto;
     text-align: center;
+    appearance: none;
+    border: 1px solid ${({theme}) => theme.colors.lightBlack};
     
     ::-webkit-inner-spin-button, 
     ::-webkit-outer-spin-button { 
@@ -106,11 +108,40 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledCheckbox = styled.input`
+
     grid-column: 1;
     margin-left: 15%;
-    position: relative;
     margin-bottom: 15px;
+    position: relative;
+    width: 30px;
+    height: 15px;
+    appearance: none;
+    background: ${({theme}) => theme.colors.secondary};
+    outline: none;
+    border-radius: 20px;
+    transition: background .5s ease-in-out;
 
+    :checked {
+        background: ${({theme}) => theme.colors.primary};
+    }
+
+    ::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 20px;
+        top: 0;
+        left: 0;
+        background: ${({theme}) => theme.colors.dirtyWhite};
+        transform: scale(1.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,.2);
+        transition: left ease-in-out.5s;
+    }
+
+    :checked::before {
+        left: 15px;
+    }
     ::after {
         content: 'Matura dwujęzyczna';
         font-size: ${({theme}) => theme.fontSize.xs};
@@ -118,7 +149,11 @@ const StyledCheckbox = styled.input`
         height: auto;
         position: absolute;
         left: 120%;
-        top: -14%;
+        top: -10%;
+    }
+
+    :hover {
+        cursor: pointer;
     }
 `;
 
@@ -155,6 +190,10 @@ const StyledResult = styled.div`
     text-align: start;
     color: ${({theme}) => theme.colors.dark};
     font-size: ${({theme}) => theme.fontSize.xl};
+
+    transition: opacity .5s ease-in-out;
+
+    opacity: ${({res}) => res > 0 ? `1` : `0`};
 
     ::before {
         content: '';
@@ -211,7 +250,9 @@ const Form = (props) => {
                 {inputsComp}
 
                 <StyledWrapper res={props.resultComp}>
-                    <StyledResult res={props.resultComp}>{res}</StyledResult>
+                    <StyledResult res={props.resultComp}>
+                        {res}
+                    </StyledResult>
                     <StyledCheckbox 
                         type='checkbox'
                         checked={props.checked}
