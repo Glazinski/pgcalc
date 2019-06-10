@@ -11,7 +11,7 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 110%;
+    height: 130%;
     width: 100%;
 
     position: absolute;
