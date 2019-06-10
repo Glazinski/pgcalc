@@ -7,8 +7,13 @@ const StyledSection = styled.section`
     height: 300px;
     margin-top: 104px;
     /* if result is true*/
+    transition: margin-top .5s ease-in-out;
     margin-top: ${({res}) => res > 0 ? `135px` : null};
     position: relative;
+
+    ${({theme}) => theme.queries.desktop} {
+        margin-top: 104px;
+    }
 `;
 
 const ClipDiv = styled.div`

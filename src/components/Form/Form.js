@@ -64,6 +64,7 @@ const ClipDiv = styled.div`
     width: 100%;
     bottom: -30%;
     /* if result is true*/
+    transition: bottom .5s ease-in-out;
     bottom: ${({res}) => res > 0 ? `-39%` : null};
     position: absolute;
 
@@ -80,11 +81,15 @@ const StyledInput = styled.input`
     text-align: center;
     appearance: none;
     border: 1px solid ${({theme}) => theme.colors.lightBlack};
-    
+    outline: none;
     ::-webkit-inner-spin-button, 
     ::-webkit-outer-spin-button { 
         -webkit-appearance: none; 
         margin: 0; 
+    }
+
+    :focus {
+        box-shadow: 0px 0px 3px 0px ${({theme}) => theme.colors.lightBlack};
     }
 `;
 
@@ -100,6 +105,7 @@ const StyledWrapper = styled.div`
     position: absolute;
     bottom: -24%;
     /* if result is true*/
+    transition: bottom .5s ease-in-out;
     bottom: ${({res}) => res > 0 ? `-35%` : null};
     width: auto;
     margin: auto auto;
@@ -166,6 +172,7 @@ const Button = styled.button`
     color: ${({theme}) => theme.colors.white};
     border: none;
 
+    outline: none;
     margin: auto auto;
     margin-bottom: -5px;
     grid-column: 1;

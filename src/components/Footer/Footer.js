@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFooter = styled.footer`
-    height: 68vh;
+    height: 100%;
     width: 100%;
     position: relative;
 `;
@@ -11,7 +11,7 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 680px;
+    height: 110%;
     width: 100%;
 
     position: absolute;
@@ -42,6 +42,13 @@ const StyledInput = styled.input`
     height: 30px;
     margin-top: 20px;
     padding: 10px;
+    appearance: none;
+    border: 1px solid ${({theme}) => theme.colors.lightBlack};
+    outline: none;
+
+    :focus {
+        box-shadow: 0px 0px 3px 0px ${({theme}) => theme.colors.lightBlack};
+    }
 `;
 const StyledArea = styled.textarea`
     margin-top: 20px;
@@ -49,13 +56,20 @@ const StyledArea = styled.textarea`
     width: 85%;
     padding: 10px;
     resize: none;
+    appearance: none;
+    border: 1px solid ${({theme}) => theme.colors.lightBlack};
+    outline: none;
+    :focus {
+        box-shadow: 0px 0px 3px 0px ${({theme}) => theme.colors.lightBlack};
+    }
 `;
 
 const Button = styled.button`
     width: 95px;
     height: 34px;
     border-radius: 17px;
-    
+
+    outline: none;
     background-color: ${({theme}) => theme.colors.primary};
     color: ${({theme}) => theme.colors.white};
     border: none;

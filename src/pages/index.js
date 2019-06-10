@@ -96,8 +96,8 @@ class IndexPage extends React.Component {
     if(isNaN(result) || result === 0) result = 'Pola muszą być uzupełnione';
 
     // If it's form show values if it's not then do sth with other form
-    id === "imp" ? this.setState({resultComp: result, close: true}) 
-    : console.log('elo');
+    id === "imp" && this.setState({resultComp: result, close: true});
+    
   }
 
   handleClick = (event, id) => {
