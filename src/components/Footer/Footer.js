@@ -11,11 +11,15 @@ const ClipPath = styled.div`
     
     clip-path: polygon(0 22%, 100% 37%, 100% 100%, 0% 100%);
     background: ${({theme}) => theme.colors.primary};
-    height: 130%;
+    height: 110%;
     width: 100%;
 
     position: absolute;
     z-index: -1;
+
+    ${(theme) => theme.queries.desktop} {
+        width: 130%;
+    }
 `;
 
 const ContactForm = styled.form`
