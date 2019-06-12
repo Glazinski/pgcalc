@@ -18,7 +18,7 @@ const ClipPath = styled.div`
     z-index: -1;
 
     ${({theme}) => theme.queries.desktop} {
-        width: 130%;
+        height: 130%;
     }
 `;
 
