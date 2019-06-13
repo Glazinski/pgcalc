@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../../img/logo-pg-small.png';
 
 const StyledHeader = styled.header`
     display: flex;
@@ -19,18 +18,17 @@ const H1 = styled.h1`
     font-size: ${({theme}) => theme.fontSize.l};
 `;
 
-const Img = styled.img`
-    position: absolute;
-    right: 5%;
-    height: 45px;
-`;
+// const Img = styled.img`
+//     position: absolute;
+//     right: 5%;
+//     height: 45px;
+// `;
 
 const Header = () => {
     return (
         <>
             <StyledHeader>
                 <H1>Kalkulator punktów</H1>
-                <Img src={logo} alt='Logo' />
             </StyledHeader>
         </>
     );
