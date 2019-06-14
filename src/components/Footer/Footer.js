@@ -143,7 +143,8 @@ const Footer = (props) => {
 
                 <Icon
                     as="a" 
-                    href="https://github.com/Glazinski" 
+                    href="https://github.com/Glazinski"
+                    rel="noopener"
                     className="fab fa-github"
                     target="_blank"></Icon>
                 </StyledWrapper>
