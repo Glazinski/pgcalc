@@ -1,1 +1,1 @@
-Just go there https://modest-payne-f612c8.netlify.com/
+<a href="https://pgcalc-v1.netlify.app/">Visit the live app</a>
